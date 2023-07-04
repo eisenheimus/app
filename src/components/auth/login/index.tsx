@@ -1,13 +1,14 @@
 import React from 'react';
 import { TextField, Button, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({ setPassword, setLogin }: any) => {
 	return (
 		<>
 			<Typography variant="h3" fontFamily="Popins" textAlign="center">
 				Авторизация
 			</Typography>
-			<Typography variant="body1" textAlign="center">
+			<Typography variant="body1" textAlign="center" marginTop="12px">
 				Введите ваш логин и пароль
 			</Typography>
 			;
@@ -15,19 +16,36 @@ const Login = () => {
 				fullWidth={true}
 				margin="normal"
 				id="outlined-basic"
-				label="Outlined"
+				label="login"
 				variant="outlined"
+				onChange={(e) => setLogin(e.target.value)}
 			/>
 			<TextField
+				type="password"
 				fullWidth={true}
 				margin="normal"
 				id="outlined-basic"
-				label="Outlined"
+				label="pswd"
 				variant="outlined"
+				onChange={(e) => setPassword(e.target.value)}
 			/>
-			<Button variant="contained" sx={{ width: '50%', display: 'flex', alignSelf: 'center' }}>
+			<Button
+				type="submit"
+				variant="contained"
+				sx={{
+					width: '50%',
+					display: 'flex',
+					height: '50px',
+					margin: '15px auto 0 auto',
+				}}>
 				Войти
 			</Button>
+			<Typography variant="body2" textAlign="center" marginTop="18px">
+				У вас нет аккаунта?{' '}
+				<Link to="/register" className="link">
+					регистрация
+				</Link>
+			</Typography>
 		</>
 	);
 };

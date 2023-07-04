@@ -11,7 +11,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-width: 400px;
+    max-width: 400px;
     padding: 3em;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -22,4 +22,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.link {
+    color: #1900D5;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.link:hover {
+    transition: all 0.5s ease-in-out;
+    text-decoration: underline;
 }
