@@ -1,8 +1,18 @@
 import { Button, TextField, Typography } from '@mui/material';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { IpropsRegister } from '../../../commons/types/auth';
 
-const Register = (props: any) => {
+const Register: React.FC<IpropsRegister> = (props: IpropsRegister): JSX.Element => {
+	const {
+		setLogin,
+		setEmail,
+		setUsername,
+		setFirstName,
+		setRepeatPassword,
+		setPassword,
+	}: IpropsRegister = props;
+
 	return (
 		<>
 			<Typography variant="h3" fontFamily="Popins" textAlign="center">
@@ -18,6 +28,7 @@ const Register = (props: any) => {
 				id="outlined-basic"
 				label="Имя"
 				variant="outlined"
+				onChange={(e) => setFirstName(e.target.value)}
 			/>
 			<TextField
 				fullWidth={true}
@@ -25,6 +36,7 @@ const Register = (props: any) => {
 				id="outlined-basic"
 				label="Username"
 				variant="outlined"
+				onChange={(e) => setUsername(e.target.value)}
 			/>
 			<TextField
 				fullWidth={true}
@@ -32,6 +44,7 @@ const Register = (props: any) => {
 				id="outlined-basic"
 				label="email"
 				variant="outlined"
+				onChange={(e) => setEmail(e.target.value)}
 			/>
 			<TextField
 				fullWidth={true}
@@ -40,14 +53,16 @@ const Register = (props: any) => {
 				label="Password"
 				variant="outlined"
 				type="password"
+				onChange={(e) => setPassword(e.target.value)}
 			/>
 			<TextField
 				fullWidth={true}
 				margin="normal"
 				id="outlined-basic"
-				label="Password"
+				label="Repeat password"
 				variant="outlined"
 				type="password"
+				onChange={(e) => setRepeatPassword(e.target.value)}
 			/>
 			<Button
 				type="submit"
@@ -70,4 +85,4 @@ const Register = (props: any) => {
 	);
 };
 
-export default Register;
+export { Register };

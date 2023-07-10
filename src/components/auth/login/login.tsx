@@ -1,8 +1,11 @@
 import React from 'react';
 import { TextField, Button, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { IpropsLogin } from '../../../commons/types/auth';
 
-const Login = ({ setPassword, setLogin }: any) => {
+const Login: React.FC<IpropsLogin> = (props: IpropsLogin): JSX.Element => {
+	const { setPassword, setEmail }: IpropsLogin = props;
+
 	return (
 		<>
 			<Typography variant="h3" fontFamily="Popins" textAlign="center">
@@ -18,7 +21,7 @@ const Login = ({ setPassword, setLogin }: any) => {
 				id="outlined-basic"
 				label="login"
 				variant="outlined"
-				onChange={(e) => setLogin(e.target.value)}
+				onChange={(e) => setEmail(e.target.value)}
 			/>
 			<TextField
 				type="password"
